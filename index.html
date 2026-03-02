@@ -585,25 +585,12 @@
             }
           }
         };
-        let writingMode = false; // 🔥 NEW
+        let writingMode = true; // 🔥 NEW
 
         function handleVoiceCommands(spokenText) {
           spokenText = spokenText.trim();
 
-          // 🟢 START WRITING
-          if (spokenText.includes("START")) {
-            writingMode = true;
-            return;
-          }
-
-          // 🔴 STOP WRITING
-          if (spokenText.includes("END")||spokenText.includes("STOP")) {
-            writingMode = false;
-            return;
-          }
-
           // ❌ If not in writing mode → ignore speech
-          if (!writingMode) return;
 
           // 🔥 COMMANDS
           if (spokenText.includes("DELETE")) {
